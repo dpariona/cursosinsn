@@ -1,0 +1,50 @@
+#.gitignore
+
+# Ignorar archivos de configuración sensibles
+/config/db_con.php
+/config/config.php
+/config/*.env
+
+# Ignorar copias de seguridad y bases de datos
+*.sql
+*.sqlite
+*.bak
+*.old
+*.zip
+
+# Ignorar archivos temporales del sistema operativo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Ignorar carpetas de caché
+/cache/
+/tmp/
+*.log
+
+# Ignorar librerías externas (si las tienes en el proyecto)
+vendor/
+node_modules/
+
+# Ignorar archivos del editor
+*.swp
+*.swo
+*.tmp
+*.~ 
+*.bak
+
+# Ignorar carpetas de entorno local
+.env
+.env.*
+
+# Ignorar configuraciones de Notepad++, VS Code, etc.
+.vscode/
+.idea/
+
+# Ignorar archivos de Live Server (VS Code)
+*.localhost*
+
+# Ignorar configuración específica de XAMPP o del entorno local
+xampp-control.ini
+
