@@ -1,5 +1,6 @@
 <?php
-require_once '../templates/header_admin.php';
+//admin/admin_encuesta.php
+require_once '../templates/header_admin.php'; // Ya incluye config y control de sesión
 require_once '../templates/sidebar_admin.php';
 
 // Borrar encuesta si se envió ?eliminar=ID
@@ -69,7 +70,7 @@ $encuestas = $db_con->query($sql);
             <div class="card shadow-lg">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="mb-0">📋 Encuestas</h4>
-                    <a href="encuesta/encuesta_nueva.php" class="btn btn-info text-white">➕ Nueva Encuesta</a>
+                    <a href="<?= URL_BASE ?>admin/encuesta_nueva.php" class="btn btn-info text-white">➕ Nueva Encuesta</a>
                 </div>
                 <div class="card-body">
                     <?php if ($encuestas->num_rows > 0): ?>

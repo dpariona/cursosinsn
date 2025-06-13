@@ -1,3 +1,8 @@
+<?php
+if (!defined('APP_RUNNING')) {
+    die("Acceso no permitido");
+}
+?>
   <!-- ======= Sidebar sidebar_admin.php ======= -->
   <!-- //templates/sidebar_admin.php -->
   <aside id="sidebar" class="sidebar">
@@ -12,7 +17,7 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="admin_cursos.php">
+        <a class="nav-link collapsed" href="./admin_cursos.php">
           <i class="bi bi-card-list"></i>
           <span>Cursos</span>
         </a>
@@ -30,7 +35,7 @@
         </a>
       </li>		
      <li class="nav-item">
-        <a class="nav-link collapsed" href="admin_encuesta.php">
+        <a class="nav-link collapsed" href="encuesta_admin.php">
           <i class="bi bi-card-list"></i>
           <span>Encuestas</span>
         </a>
@@ -67,7 +72,7 @@
       </li><!-- End Error 404 Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="../html/index.php" target="_new">
           <i class="bi bi-file-earmark"></i>
           <span>Blank</span>
         </a>

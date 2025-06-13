@@ -1,5 +1,5 @@
 <?php
-require_once '../templates/header_admin.php';
+require_once '../templates/header_admin.php'; // Ya incluye config y control de sesión
 require_once '../templates/sidebar_admin.php';
 //require_once '../utils/permisos.php';
 

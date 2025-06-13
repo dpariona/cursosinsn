@@ -1,23 +1,24 @@
 <?php
-//templates/header_admin.php
+// templates/header_admin.php
 
-define('APP_RUNNING', true); // Para permitir la inclusión de config.php
-require_once __DIR__ . '/../config/config.php';
+define('APP_RUNNING', true); // ← Esto permite cargar config.php
+require_once __DIR__ . '/../config/config.php'; // ← Ruta correcta desde templates/
 
-Sesion::redirigirSiNoLogueado('admin'); // o 'estudiante' si es para estudiantes
+Sesion::redirigirSiNoLogueado('admin'); // Ya puedes usar la clase
 
-// Iniciar sesión y obtener variables
-$sesion = new sesion();
+$sesion = new Sesion();
 $ci = $sesion->get("ci");
 $nombre = $sesion->get("nombre") ?? 'Usuario';
 $foto = $sesion->get("foto") ?? 'user.png';
 
 // Ruta de la foto
-$ruta_foto = "../assets/uploads/usuarios/" . $foto;
-if (!file_exists($ruta_foto) || empty($foto)) {
-    $ruta_foto = "../assets/uploads/usuarios/user.png";
+$ruta_foto = URL_BASE . "assets/uploads/usuarios/" . $foto;
+if (!file_exists(BASE_PATH . "assets/uploads/usuarios/" . $foto) || empty($foto)) {
+    $ruta_foto = URL_BASE . "assets/uploads/usuarios/user.png";
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,22 +27,24 @@ if (!file_exists($ruta_foto) || empty($foto)) {
 
   <title>Curso Virtual - INSN</title>
 
-  <link href="../assets/img/favicon.png" rel="icon">
-  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="<?= URL_BASE ?>assets/img/favicon.png" rel="icon">
+  <link href="<?= URL_BASE ?>assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Nunito|Poppins" rel="stylesheet">
 
   <!-- Vendor CSS -->
-  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="<?= URL_BASE ?>assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?= URL_BASE ?>assets/vendor/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" href="<?= URL_BASE ?>assets/vendor/boxicons/css/boxicons.min.css">
+  <link rel="stylesheet" href="<?= URL_BASE ?>assets/vendor/quill/quill.snow.css">
+  <link rel="stylesheet" href="<?= URL_BASE ?>assets/vendor/quill/quill.bubble.css">
+  <link rel="stylesheet" href="<?= URL_BASE ?>assets/vendor/remixicon/remixicon.css">
+  <link rel="stylesheet" href="<?= URL_BASE ?>assets/vendor/simple-datatables/style.css">
 
-  <!-- Main CSS -->
-  <link href="../assets/css/style.css" rel="stylesheet">
+  <!-- Main CSS -->  
+ 
+ <link rel="stylesheet" href="<?= URL_BASE ?>assets/css/style.css">
+
 </head>
 <body>
 

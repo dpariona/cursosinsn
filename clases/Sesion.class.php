@@ -1,5 +1,5 @@
 <?php
-// login/sesion.class.php
+//clases/Sesion.class.php
 
 class Sesion
 {
@@ -8,6 +8,20 @@ class Sesion
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
+
+        // Control de inactividad
+        $tiempo_inactivo = 900; // 15 minutos
+        if (isset($_SESSION['ultimo_acceso'])) {
+            $tiempo_actual = time();
+            $tiempo_transcurrido = $tiempo_actual - $_SESSION['ultimo_acceso'];
+            if ($tiempo_transcurrido > $tiempo_inactivo) {
+                session_unset();
+                session_destroy();
+                header("Location: /login.php?timeout=1");
+                exit();
+            }
+        }
+        $_SESSION['ultimo_acceso'] = time();
     }
 
     public static function set($clave, $valor)
