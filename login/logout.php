@@ -1,13 +1,19 @@
 <?php
-session_start();
-
+// login/logout.php
 require_once '../clases/Sesion.class.php';
-Sesion::cerrarSesionYRedirigir('./');
+Sesion::cerrarSesionYRedirigir('login.php?logout=1');
 
-// Limpia todas las variables de sesión
-$_SESSION = array();
 
-// Si quieres destruir la cookie de sesión también (recomendado)
+// anterior sin Sesion.class.php
+/*
+require_once '../clases/Sesion.class.php';
+
+Sesion::iniciar();
+
+// Limpiar todas las variables de sesión
+$_SESSION = [];
+
+// Destruir cookie de sesión si existe
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(session_name(), '', time() - 42000,
@@ -16,10 +22,10 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Destruye la sesión
+// Destruir la sesión completamente
 session_destroy();
 
-// Redirige al login (ajusta la ruta si es necesario)
-header("Location: ../login/");
+// Redirigir al login (ajusta si está en otra carpeta)
+header("Location: login.php?logout=1");
 exit();
-?>
+*/

@@ -1,3 +1,11 @@
+<!--<?php if (isset($_GET['timeout'])): 
+//login/login.php
+?>
+  <div class="alert alert-warning text-center">
+    Tu sesión ha expirado por inactividad. Por favor inicia sesión nuevamente.
+  </div>
+<?php endif; ?>
+-->
 <!DOCTYPE html>
 <html lang="es">
 <head>

@@ -4,7 +4,9 @@
 define('APP_RUNNING', true); // ← Esto permite cargar config.php
 require_once __DIR__ . '/../config/config.php'; // ← Ruta correcta desde templates/
 
-Sesion::redirigirSiNoLogueado('admin'); // Ya puedes usar la clase
+//Sesion::redirigirSiNoLogueado('admin'); // Ya puedes usar la clase
+Sesion::redirigirSiNoLogueado(['admin', 'superadmin']);
+
 
 $sesion = new Sesion();
 $ci = $sesion->get("ci");
@@ -53,7 +55,7 @@ if (!file_exists(BASE_PATH . "assets/uploads/usuarios/" . $foto) || empty($foto)
     <div class="d-flex align-items-center justify-content-between">
       <a href="dashboard.php" class="logo d-flex align-items-center">
         <img src="https://www.insn.gob.pe/sites/default/files/logo-INSN-2022.png" alt="Logo">
-        <span class="d-none d-lg-block">Cursos</span>
+        <span class="d-none d-lg-block"></span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div>
